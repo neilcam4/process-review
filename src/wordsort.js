@@ -1,9 +1,14 @@
 function spellcheck(string){
-    if((string !== 'the')&&(string !== 'and')){
-        return '~' + string + '~';
+    var words = string.split(' ')
+    var wordArray = []
+    words.forEach(function(word){
+        if((word !== 'the') && (word !== 'and')&& word !=='of'&& word !== 'a' && word !== 'to'){
+           wordArray.push('~' + word + '~');
     } else {
-    return string
+        wordArray.push(word);
     }
+})
+console.log(wordArray)
+return wordArray.join(" ")
 }
 
-// || string != 'of'

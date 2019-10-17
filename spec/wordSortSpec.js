@@ -23,6 +23,21 @@ describe('Word spell checker', function(){
         console.log(result)
         expect(result).toEqual('~und~ the')
     })
+    it('describes checking 3 words where two are wrong', function(){
+        var string = 'und the af'
+        var result = spellcheck(string)
+        expect(result).toEqual('~und~ the ~af~')
+    })
+    it('describes checking 4 words with 3 incorrect', function(){
+        var string = 'und the af e'
+        var result = spellcheck(string)
+        expect(result).toEqual('~und~ the ~af~ ~e~')
+    })
+    it('describes checking 5 words all correct', function(){
+        var string = 'and the of a to'
+        var result = spellcheck(string)
+        expect(result).toEqual('and the of a to')
+    })
 })
 
 
